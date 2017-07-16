@@ -7,3 +7,5 @@ ReactDOM.render(
     <List />,
     document.getElementById('root')
 );
+
+require('./example.js');
