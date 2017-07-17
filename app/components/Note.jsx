@@ -1,8 +1,10 @@
 var React = require('react');
-
+import { connect } from 'react-redux';
+import { removeItem } from 'action';
 var Note = React.createClass({
     del() {
-        this.props.remove(this.props.index);
+        var { dispatch } = this.props;
+        dispatch(removeItem(this.props.index));
     },
     render() {
         return (
@@ -13,4 +15,6 @@ var Note = React.createClass({
         );
     }
 });
-module.exports=Note;
+module.exports = connect(function (state) {
+    return { mang: state.mang }
+})(Note);

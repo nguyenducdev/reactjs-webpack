@@ -4,6 +4,18 @@ module.exports = {
         path: __dirname,
         filename: './public/bundle.js'
     },
+    resolve: {
+        modules: [__dirname, 'node_modules'],
+        alias: {
+            reducer: 'app/reducer/reducer.js',
+            store: 'app/example.js',
+            List: 'app/components/List.jsx',
+            Note: 'app/components/Note.jsx',
+            NoteForm: 'app/components/NoteForm.jsx',
+            action: 'app/action.js',
+        },
+        extensions: ['*', '.js', '.jsx']
+    },
     module: {
         loaders: [
             {

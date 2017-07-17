@@ -1,20 +1,26 @@
-var React =  require('react');
+var React = require('react');
+import { connect } from 'react-redux';
+import { addItem } from 'action';
 
 var NoteFrom = React.createClass({
-    add(){
+    add() {
         var v = this.refs.txt.value;
         this.refs.txt.value = '';
-        this.props.add(v);
+        var { dispatch } = this.props;
+        dispatch(addItem(v));
     },
 
-    render(){
+    render() {
         return (
             <div>
-                <input type="text" ref="txt" placeholder="enter your note"/>
-                <br/>
+                <input type="text" ref="txt" placeholder="enter your note" />
+                <br />
                 <button onClick={this.add}>Add</button>
             </div>
         );
     }
 });
-module.exports = NoteFrom;
+
+module.exports = connect(function (state) {
+    return { mang: state.mang }
+})(NoteFrom);

@@ -1,11 +1,13 @@
 var React = require('react');
 var ReactDOM = require('react-dom');
-
-var List = require('./components/List.jsx');
+var List = require('List');
+var { Provider } = require('react-redux');
+var store = require('store');
 
 ReactDOM.render(
-    <List />,
+    <Provider store={store}>
+        <List />
+    </Provider>,
     document.getElementById('root')
 );
 
-require('./example.js');
